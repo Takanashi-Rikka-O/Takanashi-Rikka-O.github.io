@@ -1,0 +1,120 @@
+									應用層
+
+		應用層指的是用戶空間，應用程序都運行在應用層，它們負責相應的服務與功能。例如，遊戲，音樂，文件編輯，網絡瀏覽等許多不同種類的服務，
+	應用層的程序也需要一些協議來進行工作。
+
+		常見的服務有:
+
+				DNS;			--	域名系統
+				mail;			--	郵件服務
+				Web;			--	萬維網
+				流式音視頻；		--	視頻或音頻
+				網絡電話；		--	網絡在線通話
+				P2P			--	對等網絡
+				CDN;			--	內容分發
+				...
+		常見的協議有:
+
+				DNS;			--	Domain Name System,域名系統
+				SMTP;			--	Simple Mail Transfer Protocol,簡單郵件傳輸
+				IMAP			--	Internet Message Access Protocol,Internet郵件訪問協議
+				POP3;			--	Post Office Protocol version3,郵局協議版本3
+				HTTTP;			--	Hyper Text Transfer Protocol,超文本傳輸協議
+				FTP;			--	File Transfer Protocol,文件傳輸協議
+				RTSP;			--	Real Time Streaming Protocol,實時流協議
+				SIP;			--	Session Initiation Protocol,會話發起協議
+				H.245			--	提供網絡電話或視頻相關參數協商
+				h.225			--	網絡電話或視頻通信的網守協議
+				...
+	
+		相應的技術或標準有:
+
+				MIME;			--	Multipurpose Internet Mail Extensions,多用途Internet郵件擴展
+				HTML;			--	HyperText Markup Language,超文本標記語言
+				CGI			--	Common Gateway Interface,公共網關接口
+				PHP;			--	Hypertext Preprocessor,超文本預處理器
+				XML;			--	eXtensible Markup Language,可擴展標記語言
+				JavaScript;		--	Java腳本
+				CSS;			--	Cascading Style Sheets,層疊樣式表
+				AJAX			--	異步JavaScript與XML
+				DOM			--	Document Object Model,文檔對象模型
+				Cookie			--	用戶個性化記錄
+				MPEG;			--	Motion Picture Experts Group,運動圖像專家組
+				JPEG;			--	Joint Photographic Experts Group,聯合圖像專家組
+				DHT;			--	Distributed Hash Tables,分佈式哈希表
+				ITU Q.931;		--	網絡電話標準功能相關
+				H.323;			--	無服務質量保障的局域網可視電話系統與設備
+				H.264/AVC		--	Advanced Video Coding,高級視頻編碼
+				...
+
+		DNS:
+
+			它的功能是將網絡上的IP地址映射爲可記憶的字符串串形式。
+
+			域名管理:
+
+				Internet名字與數字地址分配機構(ICANN,Internet Corporation for Assigned Names and Numbers)，它負責
+			管理域名空間裏的頂級域名。
+
+				域名空間即是一顆樹，樹的第二層開始就是各種Internet域名。頂級域名(top-level domains)有250個以上，它
+			們處在第二層上。其下可以在衍生出其他的域名。
+
+				域名管理只管理自己區域下的域名，例如:
+
+					com
+				|		|
+				cn		fh
+			|	|		|
+			ks	osp		lg
+
+
+				com只管理cn與fh，cn負責管理ks與osp，fh只管理lg；
+			
+				頂級域名需要向ICANN申請，但是之後的此級域名只要它的上級域名管理員同意即可創建。
+
+				域名記錄會以ASCII形式記錄在DNS服務器的數據庫中。
+				
+				DNS查詢步驟是:
+
+						主機向本地網絡的DNS服務器發送請求，如果本地沒有希望查詢的域名的記錄，則DNS服務器會將請求
+				轉發到上級域名DNS服務器；而上級DNS不會代理用戶主機向其他服務器查詢，而是返回其他的DNS服務器地址，然後用戶
+				自行與之通信。
+						DNS查詢的方式是遞歸查詢，方向是自底向上。
+
+
+			其他相關:
+					SMTP,POP3,IMAP,MIME一般用在mail中。
+
+					Web中則會使用HTTP,FTP,PHP,HTML,AJAX,CGI,Cookie等。
+			
+					網絡電話視頻與流式音視頻則是MPEG,JPEG,H.264,ITU Q.931,SIP,H.323,H.225,H.245。
+
+					對等網絡則是DHT..
+
+			郵件服務，Web這些的信息都是明文方式，即ACSII。
+
+			一般HTTP的方法:
+
+				方法				描述
+
+				GET				讀取一個Web頁面
+				HEAD				讀取一個Web頁面的頭
+				POST				附加一個Web頁面
+				PUT				存儲一個Web頁面
+				DELETE				刪除一個Web頁面
+				TRACE				迴應入境請求
+				CONNECT				通過代理連接
+				OPTIONS				一個頁面的查詢選項
+
+			常見HTTP的響應組的狀態碼:
+
+				代碼		含義		例子
+
+				1xx		信息		100=服務器同意處理客戶請求
+				2xx		成功		200=請求成功；204=沒有內容
+				3xx		重定向		301=移動頁面；304=緩存的頁面仍然有效
+				4xx		客戶錯誤	403=禁止頁面；404=頁面沒有找到
+				5xx		服務器錯誤	500=服務器內部錯誤；503=稍後再試
+
+			目前的HTTP版本是1.1
+				
